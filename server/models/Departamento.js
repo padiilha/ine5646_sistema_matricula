@@ -1,11 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const DepartamentoSchema = new Schema({
-  id: {
-    type: String,
-    require: true,
-  },
   nome: {
     type: String,
     require: true,

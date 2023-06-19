@@ -1,11 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const EstudanteSchema = new Schema({
-  id: {
-    type: String,
-    required: true,
-  },
   nome: {
     type: String,
     required: true,
@@ -30,7 +26,7 @@ const EstudanteSchema = new Schema({
     type: String,
     require: true,
   },
-})
+});
 
 const Estudante = mongoose.model("Estudante", EstudanteSchema);
 

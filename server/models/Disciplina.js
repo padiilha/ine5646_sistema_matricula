@@ -1,11 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const DisciplinaSchema = new Schema({
-  id: {
-    type: String,
-    require: true,
-  },
   nome: {
     type: String,
     require: true,
@@ -15,7 +11,7 @@ const DisciplinaSchema = new Schema({
     require: true,
   },
   carga_horaria: {
-    type: String,
+    type: Number,
     require: true,
   },
   requisitos: {
