@@ -1,13 +1,20 @@
-import { Grid, Cell, TextField, Button } from "bold-ui";
+import { Grid, Cell, TextField, Button, Alert } from "bold-ui";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../api";
 
 export default function Login() {
+  const navigate = useNavigate();
+  
   const login = (registration, password) => {
     api
-      .post("/login", { matricula: registration, senha: password })
+      .post("/login", { cpf: registration, senha: password })
       .then((response) => {
-        console.log("Credenciais enviadas");
+        if (response.data === 1)
+          return navigate("/professor");
+        else {
+          console.log("Credenciais inválidas");
+        }
       });
   };
 
@@ -33,9 +40,14 @@ export default function Login() {
     <>
       <Grid>
         <Cell md={12}>
+          <Alert type='danger' onCloseClick={console.log}>
+            Credenciais inválidas
+          </Alert>
+        </Cell>
+        <Cell md={12}>
           <TextField
-            label="Matrícula"
-            type="matricula"
+            label="CPF"
+            type="cpf"
             onChange={handleRegistrationChange}
           />
         </Cell>
@@ -43,7 +55,7 @@ export default function Login() {
           <TextField
             label="Senha"
             type="password"
-            onChenge={handlePasswordChange}
+            onChange={handlePasswordChange}
           />
         </Cell>
         <Cell md={12}>

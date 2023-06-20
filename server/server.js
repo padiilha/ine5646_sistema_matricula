@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/sistema_matricula", {
+  .connect("mongodb+srv://padilhacaua:qD8iuJM8SiO4skZO@cluster0.efjkuxt.mongodb.net/sistema_matricula", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -122,12 +122,12 @@ app.delete("/professor/delete/:id", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-  const estudante = await Estudante.find({
-    matricula: req.body.matricula,
+  const professor = await Professor.find({
+    cpf: req.body.cpf,
     senha: req.body.senha,
   });
-
-  res.json(estudante);
+  
+  res.json(professor);
 });
 
 const port = 8080;

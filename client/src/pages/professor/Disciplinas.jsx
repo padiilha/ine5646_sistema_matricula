@@ -1,9 +1,9 @@
-import { Button } from "bold-ui";
+import { Text } from "bold-ui";
 
 export default function ProfessorDisciplinas() {
   return (
     <>
-      <Button kind="primary" block />
+      <Text>Disciplinas</Text>
     </>
   );
 }
