@@ -1,7 +1,7 @@
 
 import { Collapse } from 'antd';
 import { Button, HFlow, VFlow } from 'bold-ui'
- 
+
 const items = [
   {
     key: '1',
@@ -12,18 +12,19 @@ const items = [
                   
                   <p>Código: INE5609</p>
                   <p>Horário: 2.2020-2</p>
-                  <p>Disponível</p>
                   <Button kind="primary" size="medium">
                     Ministrar disciplina
                   </Button>
-                  </HFlow>
+                  </HFlow >
+                  
                 </VFlow>
               </>
   },
   {
     key: '2',
     label: 'Banco de Dados I',
-    children: <>
+    children: 
+              
                 <VFlow>
                   <HFlow justifyContent='center'>
                   <p>Código: INE5609</p>
@@ -32,8 +33,8 @@ const items = [
                     Largar disciplina
                   </Button>
                   </HFlow>
-                </VFlow>
-              </>
+                </VFlow>          
+              
   },
   {
     key: '3',
@@ -101,7 +102,7 @@ const items = [
               </>
   },
   {
-    key: 'Teoria Geral de Sistemas',
+    key: '8',
     label: 'Arquitetura e Organização de Computadores',
     children: <>
                 <VFlow>
@@ -121,8 +122,10 @@ function CollapseE(){
     marginRight: '50px',
     marginBottom: '20px'
   };
+
   return (
-      <Collapse accordion items={items} bordered={false} style={customStyle} />)    
+      <Collapse accordion items={items} bordered={false} style={customStyle}
+        />)    
     }
     
 export default CollapseE;
