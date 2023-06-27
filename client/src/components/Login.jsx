@@ -10,7 +10,7 @@ export default function Login() {
     api
       .post("/login", { cpf: registration, senha: password })
       .then((response) => {
-        if (response.data !== 0) return navigate("/professor/");
+        if (response.data != 0) return navigate("/professor/");
         else {
           console.log("Credenciais inválidas ", response.data);
         }
