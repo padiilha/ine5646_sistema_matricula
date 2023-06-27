@@ -1,4 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
+import CadastroProfessor from "../components/CadastroProfessor";
+import AtualizarProfessor from "../components/AtualizarCadastroProfessor";
 
 const LayoutProfessor = () => {
   return (
@@ -10,7 +12,8 @@ const LayoutProfessor = () => {
           </li>
         </ul>
       </nav>
-
+      <CadastroProfessor />
+      <AtualizarProfessor />
       <Outlet />
     </>
   );

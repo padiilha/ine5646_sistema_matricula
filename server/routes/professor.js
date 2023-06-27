@@ -23,4 +23,20 @@ router.delete("/professor/delete/:id", async (req, res) => {
   res.json(result);
 });
 
+router.patch("/professor/update/:id", async (req, res) => {
+  try {
+    professor = await Task.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    res.status(200).json(professor);
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
+});
+
+router.getOne("/professor/getOne", async (req, res) => {
+  professor = await Professor.find;
+});
+
 module.exports = router;
