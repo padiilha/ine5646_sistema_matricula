@@ -17,7 +17,7 @@ router.post("/new", async (req, res) => {
   res.json(professor);
 });
 
-router.delete("/professor/delete/:id", async (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
   const result = await Professor.findByIdAndDelete(req.params.id);
 
   res.json(result);
