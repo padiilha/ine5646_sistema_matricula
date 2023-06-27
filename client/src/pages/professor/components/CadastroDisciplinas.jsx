@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { Grid, Cell, TextField, Button, Alert } from "bold-ui";
-import { useNavigate } from "react-router-dom";
+import { Grid, Cell, TextField, Button } from "bold-ui";
 import * as Yup from "yup";
-import api from "../api";
+import api from "../../../api";
 
-export default function CadastroDisciplina() {
-  const navigate = useNavigate();
-
+const CadastroDisciplina = () => {
   const validationSchema = Yup.object().shape({
     nome: Yup.string().required("Nome é obrigatório"),
     codigo: Yup.string().required("Codigo é obrigatória"),
@@ -94,13 +91,6 @@ export default function CadastroDisciplina() {
 
   return (
     <Grid>
-      {/* <Cell md={12}>
-        {alertMessage && (
-          <Alert type={alertType} onClose={() => setAlertMessage("")}>
-            {alertMessage}
-          </Alert>
-        )}
-      </Cell> */}
       <Cell md={12}>
         <TextField label="Nome" value={nameData} onChange={handleNameChange} />
       </Cell>
@@ -146,4 +136,6 @@ export default function CadastroDisciplina() {
       </Cell>
     </Grid>
   );
-}
+};
+
+export default CadastroDisciplina;

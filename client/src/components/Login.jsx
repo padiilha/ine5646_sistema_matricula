@@ -1,4 +1,4 @@
-import { Grid, Cell, TextField, Button, Alert } from "bold-ui";
+import { Grid, Cell, TextField, Button } from "bold-ui";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api";
@@ -10,10 +10,8 @@ export default function Login() {
     api
       .post("/login", { cpf: registration, senha: password })
       .then((response) => {
-        if (response.data != 0) return navigate("/professor/");
-        else {
-          console.log("Credenciais inválidas ", response.data);
-        }
+        if (response.data != 0) return navigate("/professor");
+        else console.log("Credenciais inválidas ", response.data);
       });
   };
 
@@ -38,26 +36,21 @@ export default function Login() {
   return (
     <>
       <Grid>
-        <Cell md={12}>
-          <Alert type="danger" onCloseClick={console.log}>
-            Credenciais inválidas
-          </Alert>
-        </Cell>
-        <Cell md={12}>
+        <Cell md={12} xs={12}>
           <TextField
             label="CPF"
             type="cpf"
             onChange={handleRegistrationChange}
           />
         </Cell>
-        <Cell md={12}>
+        <Cell md={12} xs={12}>
           <TextField
             label="Senha"
             type="password"
             onChange={handlePasswordChange}
           />
         </Cell>
-        <Cell md={12}>
+        <Cell md={12} xs={12}>
           <Button kind="primary" block onClick={handleButtonClick}>
             Entrar
           </Button>
