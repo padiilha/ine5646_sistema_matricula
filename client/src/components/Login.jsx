@@ -5,15 +5,14 @@ import api from "../api";
 
 export default function Login() {
   const navigate = useNavigate();
-  
+
   const login = (registration, password) => {
     api
       .post("/login", { cpf: registration, senha: password })
       .then((response) => {
-        if (response.data === 1)
-          return navigate("/professor");
+        if (response.data != 0) return navigate("/professor");
         else {
-          console.log("Credenciais inválidas");
+          console.log("Credenciais inválidas ", response.data);
         }
       });
   };
@@ -40,7 +39,7 @@ export default function Login() {
     <>
       <Grid>
         <Cell md={12}>
-          <Alert type='danger' onCloseClick={console.log}>
+          <Alert type="danger" onCloseClick={console.log}>
             Credenciais inválidas
           </Alert>
         </Cell>

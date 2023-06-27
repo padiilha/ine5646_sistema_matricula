@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-router.post("/login", async (req, res) => {
+const Professor = require("../models/Professor");
+
+router.post("/", async (req, res) => {
   const professor = await Professor.find({
     cpf: req.body.cpf,
     senha: req.body.senha,
