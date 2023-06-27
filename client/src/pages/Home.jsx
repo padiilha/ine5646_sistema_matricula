@@ -1,5 +1,5 @@
 import { css } from "@emotion/core";
-import { useTheme, VFlow, Text } from "bold-ui";
+import { useTheme, VFlow, Text, Link } from "bold-ui";
 import Login from "../components/Login";
 
 export default function Home() {
@@ -7,7 +7,6 @@ export default function Home() {
     container: css`
       display: flex;
       height: 100vh;
-
       @media (max-width: 600px) {
         flex-direction: column;
       }
@@ -32,6 +31,7 @@ export default function Home() {
           Sistema de Matrículas
         </Text>
         <Login />
+        <Link>Cadastre-se</Link>
       </VFlow>
     </div>
   );
