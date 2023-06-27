@@ -1,7 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
 import { Text, Button } from "bold-ui";
-import CadastroProfessor from "../components/CadastroProfessor";
-import AtualizarProfessor from "../components/AtualizarCadastroProfessor";
 
 const LayoutProfessor = () => {
   const customStyle = {
@@ -25,19 +23,14 @@ const LayoutProfessor = () => {
             </Link>
           </Button>
           <Button>
-            <Link
-              to="/professor/atualizar_cadastro"
-              style={{ textDecoration: "none" }}
-            >
+            <Link to="/professor/cadastro" style={{ textDecoration: "none" }}>
               <Text fontSize={1.0} color="normal">
-                Atualizar cadastro
+                Cadastrar professor
               </Text>
             </Link>
           </Button>
         </ul>
       </nav>
-      <CadastroProfessor />
-      <AtualizarProfessor />
       <Outlet />
     </>
   );
