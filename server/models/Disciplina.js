@@ -24,6 +24,10 @@ const DisciplinaSchema = new Schema({
     type: String,
     require: true,
   },
+  status: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const Disciplina = mongoose.model("Disciplina", DisciplinaSchema);
