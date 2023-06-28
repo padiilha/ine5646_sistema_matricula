@@ -1,6 +1,7 @@
 import { css } from "@emotion/core";
 import { useTheme, VFlow, Text, Link } from "bold-ui";
 import Login from "../components/Login";
+import { Outlet } from "react-router-dom";
 
 const Home = () => {
   const createStyles = () => ({
@@ -24,6 +25,8 @@ const Home = () => {
   const theme = useTheme();
   const styles = createStyles(theme);
 
+  clearToken();
+
   return (
     <div className="App" css={styles.container}>
       <VFlow vSpacing={2} style={styles.welcomeContainer}>
@@ -31,10 +34,15 @@ const Home = () => {
           Sistema de Matrículas
         </Text>
         <Login />
-        <Link>Cadastre-se</Link>
+        <Link href="/cadastro/novo">Cadastre-se</Link>
       </VFlow>
+      <Outlet />
     </div>
   );
 };
 
 export default Home;
+
+const clearToken = () => {
+  localStorage.setItem("token", null);
+};

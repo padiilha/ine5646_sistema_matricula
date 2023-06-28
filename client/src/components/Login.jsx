@@ -10,8 +10,10 @@ export default function Login() {
     api
       .post("/login", { cpf: registration, senha: password })
       .then((response) => {
-        if (response.data != 0) return navigate("/professor");
-        else console.log("Credenciais inválidas ", response.data);
+        if (response.data.length !== 0) {
+          localStorage.setItem("token", response.data.accessToken);
+          return navigate("/professor/disciplinas");
+        } else console.log("Credenciais inválidas ", response.data);
       });
   };
 
@@ -27,6 +29,10 @@ export default function Login() {
   };
 
   const handleButtonClick = () => {
+    if (!registrationData || !passwordData) {
+      alert("Por favor, preencha todos os campos necessários.");
+      return;
+    }
     login(registrationData, passwordData);
     return new Promise((resolve) => {
       setTimeout(() => resolve(), 1000);
@@ -41,6 +47,7 @@ export default function Login() {
             label="CPF"
             type="cpf"
             onChange={handleRegistrationChange}
+            required
           />
         </Cell>
         <Cell md={12} xs={12}>
@@ -48,6 +55,7 @@ export default function Login() {
             label="Senha"
             type="password"
             onChange={handlePasswordChange}
+            required
           />
         </Cell>
         <Cell md={12} xs={12}>
