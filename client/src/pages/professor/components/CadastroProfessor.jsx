@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Grid, Cell, TextField, Button } from "bold-ui";
-import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 import api from "../../../api";
 
 const CadastroProfessor = () => {
-  const navigate = useNavigate();
+  const validationSchema = Yup.object().shape({
+    cpf: Yup.string().required("CPF é obrigatório"),
+    senha: Yup.string().required("Senha é obrigatória"),
+    nome: Yup.string().required("Nome é obrigatório"),
+  });
 
   const cadastrar = (nome, cpf, senha, departamento) => {
     api.post("/professor/new", {
@@ -37,33 +41,30 @@ const CadastroProfessor = () => {
   };
 
   const handleButtonClick = () => {
-    if (!nameData || !registrationData || !passwordData || !departamentoData) {
-      alert("Por favor, preencha todos os campos necessários.");
-      return;
-    }
-    cadastrar(nameData, registrationData, passwordData, departamentoData);
-    setRegistrationData("");
-    setPasswordData("");
-    setNameData("");
-    setDepartamentoData("");
+    validationSchema
+      .validate({ cpf: registrationData, senha: passwordData, nome: nameData })
+      .then(() => {
+        cadastrar(nameData, registrationData, passwordData, departamentoData);
+        setRegistrationData("");
+        setPasswordData("");
+        setNameData("");
+        setDepartamentoData("");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
     <Grid>
       <Cell md={12}>
-        <TextField
-          label="Nome"
-          value={nameData}
-          onChange={handleNameChange}
-          required
-        />
+        <TextField label="Nome" value={nameData} onChange={handleNameChange} />
       </Cell>
       <Cell md={12}>
         <TextField
           label="Departamento"
           value={departamentoData}
           onChange={handleDepartamentoChange}
-          required
         />
       </Cell>
       <Cell md={12}>
@@ -72,7 +73,6 @@ const CadastroProfessor = () => {
           type="cpf"
           value={registrationData}
           onChange={handleRegistrationChange}
-          required
         />
       </Cell>
       <Cell md={12}>
@@ -81,7 +81,6 @@ const CadastroProfessor = () => {
           type="password"
           value={passwordData}
           onChange={handlePasswordChange}
-          required
         />
       </Cell>
       <Cell md={12}>

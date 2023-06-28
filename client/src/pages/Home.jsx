@@ -2,7 +2,7 @@ import { css } from "@emotion/core";
 import { useTheme, VFlow, Text, Link } from "bold-ui";
 import Login from "../components/Login";
 
-export default function Home() {
+const Home = () => {
   const createStyles = () => ({
     container: css`
       display: flex;
@@ -35,4 +35,6 @@ export default function Home() {
       </VFlow>
     </div>
   );
-}
+};
+
+export default Home;
