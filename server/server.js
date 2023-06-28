@@ -8,10 +8,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+const authRoutes = require("./routes/auth");
 const disciplinaRoutes = require("./routes/disciplina");
 const professorRoutes = require("./routes/professor");
 const loginRoutes = require("./routes/login");
 
+app.use("/auth", authRoutes);
 app.use("/disciplina", disciplinaRoutes);
 app.use("/professor", professorRoutes);
 app.use("/login", loginRoutes);

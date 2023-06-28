@@ -9,12 +9,7 @@ const Cadastro = () => {
   return (
     <>
       <VFlow vSpacing={1}>
-        <Text
-          textAlign="center"
-          fontSize={1.5}
-          color="primary"
-          style={customStyle}
-        >
+        <Text fontSize={1.5} color="primary" style={customStyle}>
           Cadastro
         </Text>
       </VFlow>

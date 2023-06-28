@@ -1,6 +1,7 @@
 import { VFlow, Text } from "bold-ui";
+import CadastroProfessor from "../components/CadastroProfessor";
 
-const Professor = () => {
+const CadastroNovoProfessor = () => {
   const customStyle = {
     marginLeft: "70px",
   };
@@ -9,11 +10,12 @@ const Professor = () => {
     <>
       <VFlow vSpacing={1}>
         <Text fontSize={1.5} color="primary" style={customStyle}>
-          Professor
+          Novo cadastro
         </Text>
       </VFlow>
+      <CadastroProfessor />
     </>
   );
 };
 
-export default Professor;
+export default CadastroNovoProfessor;
