@@ -8,6 +8,23 @@ A aplicação pode ser acessada no servidor da UFSC e está disponível pelo lin
 
 Este repositório está disponível em https://github.com/padiilha/ine5646_sistema_matricula
 
+### Instruções para execução da aplicação
+#### Frontend
+Para executar o frontend em modo de desenvolvimento basta executar no diretório `/client` os seguintes comandos:
+```
+$ npm install
+$ npm start
+```
+Dessa forma o frontend será iniciado na porta `3000`
+
+#### Backend
+Para executar o frontend em modo de desenvolvimento basta executar no diretório `/server` os seguintes comandos:
+```
+$ npm install
+$ npm start
+```
+Dessa forma o frontend será iniciado na porta `8080`
+
 ## Equipe
 
 - Bruno Scheidemantel Ganzo (22100894)
