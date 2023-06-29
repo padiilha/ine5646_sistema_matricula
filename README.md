@@ -6,6 +6,8 @@ As tecnologias utilizadas são as da Stack MERN (Mongo, Express, React e Node) e
 
 A aplicação pode ser acessada no servidor da UFSC e está disponível pelo link [matricula.padilha.caua.vms.ufsc.br](http://matricula.padilha.caua.vms.ufsc.br:3000/)
 
+Este repositório está disponível em https://github.com/padiilha/ine5646_sistema_matricula
+
 ## Equipe
 
 - Bruno Scheidemantel Ganzo (22100894)
