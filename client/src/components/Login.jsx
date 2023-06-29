@@ -12,6 +12,7 @@ export default function Login() {
       .then((response) => {
         if (response.data.length !== 0) {
           localStorage.setItem("token", response.data.accessToken);
+          localStorage.setItem("cpf", registration);
           return navigate("/professor/disciplinas");
         } else console.log("Credenciais inválidas ", response.data);
       });

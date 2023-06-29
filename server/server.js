@@ -3,10 +3,15 @@ const cors = require("cors");
 
 require("./db-connection");
 
+const ALLOWED_ORIGINS = "*";
+const options = {
+  origin: ALLOWED_ORIGINS,
+};
+
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(options));
 
 const authRoutes = require("./routes/auth");
 const disciplinaRoutes = require("./routes/disciplina");

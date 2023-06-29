@@ -10,12 +10,14 @@ router.post("/", async (req, res) => {
     senha: req.body.senha,
   });
 
-  console.log(professor);
   if (professor.length === 0) res.json(professor);
   else {
     const accessToken = jwt.sign(req.body.cpf, process.env.ACCESS_TOKEN_SECRET);
 
-    res.json({ accessToken: accessToken });
+    res.json({
+      accessToken: accessToken,
+      cpf: req.body.cpf,
+    });
   }
 });
 

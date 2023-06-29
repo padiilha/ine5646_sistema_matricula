@@ -8,6 +8,7 @@ import ProfessorDisciplinas from "./pages/professor/disciplinas/ProfessorDiscipl
 import Cadastro from "./pages/cadastro/Cadastro";
 import CadastroNovoProfessor from "./pages/cadastro/novo/CadastroNovoProfessor";
 import CadastroAtualizarProfessor from "./pages/cadastro/atualizar/CadastroAtualizarProfessor";
+import CadastroNovoDisciplina from "./pages/cadastro/novo/CadastroNovoDisciplina";
 
 export default function App() {
   return (
@@ -28,6 +29,9 @@ export default function App() {
             path="/cadastro/atualizar"
             element={<CadastroAtualizarProfessor />}
           />
+        </Route>
+        <Route path="/disciplina">
+          <Route path="/disciplina/novo" element={<CadastroNovoDisciplina />} />
         </Route>
       </Routes>
     </BrowserRouter>
