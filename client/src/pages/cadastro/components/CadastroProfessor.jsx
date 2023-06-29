@@ -68,10 +68,6 @@ const CadastroProfessor = () => {
       return;
     }
     cadastrar(nameData, registrationData, departamentoData, passwordData);
-    setRegistrationData("");
-    setPasswordData("");
-    setNameData("");
-    setDepartamentoData("");
     return new Promise((resolve) => {
       setTimeout(() => resolve(), 1000);
     });
@@ -80,20 +76,16 @@ const CadastroProfessor = () => {
   return (
     <Grid alignItems="flex-end" gap={1.5}>
       <Cell sm={8} xs={12}>
-        <TextField
-          label="Nome"
-          onChange={handleNameChange}
-          disabled={isAuth}
-          required
-        />
+        <TextField label="Nome" onChange={handleNameChange} required />
       </Cell>
       <Cell sm={3} xs={12}>
         <TextField
           label="CPF"
           type="cpf"
           onChange={handleRegistrationChange}
+          value={isAuth ? localStorage.getItem("cpf") : ""}
           disabled={isAuth}
-          required
+          required={isAuth}
         />
       </Cell>
       <Cell sm={12} xs={12}>

@@ -12,11 +12,11 @@ const LayoutProfessor = () => {
     <>
       <nav>
         <ul style={customStyle}>
+          <Link to="/disciplina/novo" style={{ textDecoration: "none" }}>
+            <Button>Cadastrar disciplina</Button>
+          </Link>
           <Link to="/professor/disciplinas" style={{ textDecoration: "none" }}>
             <Button>Disciplinas</Button>
-          </Link>
-          <Link to="/cadastro/atualizar" style={{ textDecoration: "none" }}>
-            <Button>Atualizar cadastro</Button>
           </Link>
         </ul>
       </nav>
